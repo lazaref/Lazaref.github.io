@@ -1,0 +1,109 @@
+    /* Apply a box-sizing property of border-box to all elements */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Set default font family, size and color*/
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: #212121;
+    }
+
+    /* Center the h2 element horizontally */
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-top: 50px;
+    }
+
+    /* Style the article div with a white background and some padding*/
+    article {
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 5px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      margin: 50px auto;
+      max-width: 600px;
+    }
+
+    /* Display the image as a block-level element */
+    img {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 25px;
+    }
+
+    /* Center the button horizontally and give it a little margin */
+    button {
+      display: block;
+      margin: 0 auto 20px;
+      background-color: #0cc27f;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all .3s ease-in;
+    }
+
+    /* Change button color on hover */
+    button:hover {
+      background-color: #357ae8;
+    }
+
+    /* Style the contact form inputs */
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    /* Style select dropdown */
+    select {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%);
+      background-position:
+        calc(100% - 23px) calc(1em + 2px),
+        calc(100% - 18px) calc(1em + 2px);
+      background-size:
+        5px 5px,
+        5px 5px;
+      background-repeat: no-repeat;
+    }
+
+    /* Style radio buttons and checkbox */
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    label {
+      font-size: 14px;
+    }
+
+    /* Style text area */
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }

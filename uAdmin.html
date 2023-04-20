@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+   -->
+  <link rel="stylesheet" href="uAdmin.css">
+  <!-- Styling -->
+  
+</head>
+
+<body>
+
+  <h2>Admin Interface v3.0</h2>
+
+  <article>
+
+    <form action="#">
+      
+      <div>
+        <label for="device">Device:</label>
+        <select name="device" id="device">
+          <option value="PC01">PC01</option>
+          <option value="PC02">PC02</option>
+          <option value="PC03">PC03</option>
+          <option value="PC04">PC04</option>
+          <option value="PC05">PC05</option>
+          <option value="PC06">PC06</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="image">Select image :</label>
+        <select name="image" id="image">
+          <option value="image00">image00</option>
+          <option value="image01">image01</option>
+          <option value="image02">image02</option>
+          <option value="image03">image03</option>
+          <option value="image04">image04</option>
+          <option value="image05">image05</option>
+          <option value="image06">image06</option>
+          <option value="image07">image07</option>
+          <option value="image08">image08</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label for="picture">Open image :</label>
+        <input type="file" id="picture" name="picture">
+        <br>
+        <!--<input type="text" id="picture-path" name="picture-path">--> 
+      </div>
+      <br>
+      <div>
+        <label for="datetime-start">Date Time Start:</label>
+        <input type="date"  id="datetime-start" name="datetime-start" value="2023-01-01">
+        <input type="time" id="time-start" name="time-start" value="22:00">
+      </div>
+
+      <div>
+        <label for="datetime-stop">Date Time Stop:</label>
+        <input type="date" id="datetime-stop" name="datetime-stop" value="2023-01-01">
+        <input type="time" id="time-stop" name="time-stop" value="22:00">
+      </div>
+      <br>
+      <div>
+        <label for="delay">Delay:</label>
+        <input type="number" id="delay" name="delay" value="2">
+      </div>
+
+      <div>
+        <label for="memo">Memo:</label>
+        <textarea id="memo" name="memo"></textarea>
+      </div>
+
+      <button type="submit" id="update-button">Update</button>
+
+    </form>
+
+  </article>
+
+
+  <script src="uAdmin.js"></script>
+</body>
+</html>
