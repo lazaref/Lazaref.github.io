@@ -18,6 +18,8 @@ picture.addEventListener('change', function() {
 var button = document.getElementById('update-button');
 var PCID = document.getElementById('device').value;
 var imgID= document.getElementById('image').value;
+var button2 = document.getElementById('getImgNames-button');
+
 console.log("imgID = "+imgID);
 //var imgPath = document.getElementById('picture-path').value;
 
@@ -80,6 +82,43 @@ button.addEventListener('click', () => {
   .then(data => console.log(data))
   .catch(error => console.error(error));
 });
+
+
+
+
+button2.addEventListener('click',getFileNames);
+
+
+
+function getFileNames() {
+  console.log(PCID);
+  PCID=document.getElementById('device').value;
+  console.log(PCID);
+  var url = 'https://pubvision-20326-default-rtdb.firebaseio.com/Devices/'+PCID+'/images.json';
+  var fileNameList=[] ;
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+          var fileName = data[key].fileName;
+          //fileNameList.push(fileName);
+          console.log(fileName);
+          //memo.value =fileName ;
+          fileNameList.push('\n'+key + ' : ' + fileName);
+          // Do something with the file name, like displaying it on the page
+        }
+        document.getElementById('memo').value =fileNameList ;
+      }
+    })
+    .catch(function(error) {
+      console.log('Error:', error);
+    });
+}
+
+
 
 
 
