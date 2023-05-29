@@ -60,12 +60,33 @@ var memo= document.getElementById('memo').value;
 button.addEventListener('click', () => {
   const data = {
     //base64: [imgPath],
-    'DateTimeStart': dateTimeStartTS.toString(),
-    'DateTimeStop': dateTimeStopTS.toString(),
+    'DateTimeStart': '',//dateTimeStartTS.toString()''
+    'DateTimeStop':'',// dateTimeStopTS.toString(),
     'base64' : imgBase64 ,
     'delay' : delay,
+    'fileName':'',
   };
   
+
+ //StartTime
+  let dateStart = document.getElementById('datetime-start').value;
+  let timeStart = document.getElementById('time-start').value;
+  let dateTimeStart = new Date(dateStart + ' ' + timeStart);
+  var dateTimeStartTS = dateTimeStart.getTime()/1000;
+  data.DateTimeStart = dateTimeStartTS.toString() ;
+  console.log("dateTimeStartTS " + dateTimeStartTS);
+
+  // StopTime
+  let dateStop = document.getElementById('datetime-stop').value;
+  let timeStop = document.getElementById('time-stop').value;
+  let dateTimeStop = new Date(dateStop + ' ' + timeStop);
+  var dateTimeStopTS = dateTimeStop.getTime()/1000;
+  data.DateTimeStop = dateTimeStopTS.toString() ;
+  console.log("dateTimeStopTS " + dateTimeStopTS);
+
+  data.delay = document.getElementById('delay').value*1000;;
+  data.fileName = document.getElementById('picture').value; ;
+
  var url2=mainUrl +'Devices/'+PCID+'/images/'+imgID+'.json';
  console.log("url2 " + url2)
  var PCID = document.getElementById('device').value;
