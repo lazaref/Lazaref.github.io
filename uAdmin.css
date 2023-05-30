@@ -107,3 +107,7 @@
       resize: vertical;
       height: 120px;
     }
+    .button-container {
+      display: flex;
+
+    }
