@@ -19,7 +19,8 @@ var button = document.getElementById('update-button');
 var PCID = document.getElementById('device').value;
 var imgID= document.getElementById('image').value;
 var button2 = document.getElementById('getImgNames-button');
-
+var button3 = document.getElementById('refresh-button');
+var button4 = document.getElementById('delete-button');
 console.log("imgID = "+imgID);
 //var imgPath = document.getElementById('picture-path').value;
 
@@ -140,6 +141,87 @@ function getFileNames() {
 }
 
 
+
+
+
+
+button3.addEventListener('click',refreshPage);
+
+
+
+function refreshPage() {
+  const data = {
+      'refrechVar': 0,//random
+  };
+  
+  PCID=document.getElementById('device').value;
+  console.log(PCID);
+  data.refrechVar=getRandomNumber(0, 999999999);
+   var url = 'https://pubvision-20326-default-rtdb.firebaseio.com/Devices/'+PCID+'/refrech.json';
+  var fileNameList=[] ;
+  fetch(url , {
+    method: 'PATCH',
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+}
+
+
+
+
+
+button4.addEventListener('click',deleteImage);
+
+
+
+function deleteImage() {
+
+  let PCID=document.getElementById('device').value;
+  let img=document.getElementById('image').value;
+  console.log(PCID , '  |  ' ,img );
+  const url ='https://pubvision-20326-default-rtdb.firebaseio.com/Devices/'+PCID+'/images/'+img+'.json';
+
+  fetch(url, {
+    method: 'DELETE'
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Deletion successful.');
+      } else {
+        console.log('Deletion failed.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function getRandomNumber(min, max) {
+  // Generate a random decimal between 0 and 1
+  var randomDecimal = Math.random();
+
+  // Scale the decimal to the desired range
+  var randomInRange = randomDecimal * (max - min + 1) + min;
+
+  // Convert the decimal to a whole number
+  var randomNumber = Math.floor(randomInRange);
+
+  return randomNumber;
+}
 
 
 
